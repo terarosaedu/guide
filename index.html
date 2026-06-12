@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>테라로사 교육서비스팀 | 웹사이트 제작 가이드</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <div class="brand">
+      <img src="logo.png" alt="TERAROSA" class="brand__logo">
+      <span class="brand__divider"></span>
+      <span class="brand__title">웹사이트 제작 가이드</span>
+    </div>
+    <nav class="tabs" id="tabs">
+      <button class="tab is-active" data-target="overview">
+        <span class="tab__index">00</span>개요
+      </button>
+      <button class="tab" data-target="vscode">
+        <span class="tab__index">01</span>VS Code
+      </button>
+      <button class="tab" data-target="github">
+        <span class="tab__index">02</span>Github
+      </button>
+      <button class="tab" data-target="supabase">
+        <span class="tab__index">03</span>Supabase
+      </button>
+      <button class="tab" data-target="python">
+        <span class="tab__index">04</span>Python
+      </button>
+      <button class="tab" data-target="appendix">
+        <span class="tab__index">05</span>Appendix
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="content">
+
+  <!-- ================= 00 개요 ================= -->
+  <section class="panel is-active" id="overview">
+    <div class="section-head">
+      <span class="section-head__index">00</span>
+      <div>
+        <h1 class="section-head__title">웹사이트 제작 및 운영 가이드</h1>
+        <p class="section-head__desc">교육서비스팀이 직접 만들고, 고치고, 배포하기까지의 전체 흐름</p>
+      </div>
+    </div>
+
+    <h2 class="block-title">사용하는 도구들</h2>
+    <div class="tool-grid">
+      <article class="tool-card">
+        <div class="tool-card__num">1</div>
+        <h3 class="tool-card__name">Claude AI</h3>
+        <span class="tool-card__type">웹 / 프로그램</span>
+        <p class="tool-card__desc">웹사이트 초기 구축. 아이디어를 입력하면 코드 파일을 생성해줍니다.</p>
+      </article>
+      <article class="tool-card">
+        <div class="tool-card__num">2</div>
+        <h3 class="tool-card__name">VS Code</h3>
+        <span class="tool-card__type">프로그램</span>
+        <p class="tool-card__desc">생성된 코드 파일을 직접 수정합니다.</p>
+        <a class="tool-card__link" data-goto="vscode">매뉴얼 보기 →</a>
+      </article>
+      <article class="tool-card">
+        <div class="tool-card__num">3</div>
+        <h3 class="tool-card__name">Github</h3>
+        <span class="tool-card__type">웹</span>
+        <p class="tool-card__desc">완성된 코드 파일을 업로드하여 웹에 배포하고, 공유 링크를 생성합니다.</p>
+        <a class="tool-card__link" data-goto="github">매뉴얼 보기 →</a>
+      </article>
+      <article class="tool-card">
+        <div class="tool-card__num">4</div>
+        <h3 class="tool-card__name">Supabase</h3>
+        <span class="tool-card__type">웹</span>
+        <p class="tool-card__desc">웹사이트에서 응답한 데이터를 자동으로 수집·저장합니다.</p>
+        <a class="tool-card__link" data-goto="supabase">매뉴얼 보기 →</a>
+      </article>
+      <article class="tool-card">
+        <div class="tool-card__num">5</div>
+        <h3 class="tool-card__name">Python</h3>
+        <span class="tool-card__type">파일 (.py)</span>
+        <p class="tool-card__desc">Supabase에서 받은 데이터 파일(.csv)을 보기 좋은 엑셀(.xlsx)로 변환합니다.</p>
+        <a class="tool-card__link" data-goto="python">매뉴얼 보기 →</a>
+      </article>
+    </div>
+
+    <h2 class="block-title">전체 흐름 요약</h2>
+    <p class="block-sub">예시: 온보딩 모바일화 사이트</p>
+    <div class="flow-grid">
+      <article class="flow-card">
+        <div class="flow-card__head">
+          <span class="flow-card__num">STEP 1</span>
+          <h3 class="flow-card__title">코딩 단계</h3>
+        </div>
+        <ol class="flow-card__steps">
+          <li>Claude AI로 코드 생성</li>
+          <li>VS Code로 직접 수정</li>
+          <li>코드 파일을 Github에 업로드하여 배포</li>
+          <li>생성된 링크 복사</li>
+        </ol>
+      </article>
+      <article class="flow-card">
+        <div class="flow-card__head">
+          <span class="flow-card__num">STEP 2</span>
+          <h3 class="flow-card__title">사용 단계</h3>
+        </div>
+        <ol class="flow-card__steps">
+          <li>생성된 링크 + 접속코드 공유</li>
+          <li>교육생이 온보딩 사이트에서 이름 입력 · 퀴즈 풀기 · 시험 · 설문 제출</li>
+          <li>제출한 데이터가 Supabase에 자동 저장</li>
+        </ol>
+      </article>
+      <article class="flow-card">
+        <div class="flow-card__head">
+          <span class="flow-card__num">STEP 3</span>
+          <h3 class="flow-card__title">수집 단계</h3>
+        </div>
+        <ol class="flow-card__steps">
+          <li>담당자가 Supabase에서 데이터 파일(.csv) 다운로드</li>
+          <li>Python 스크립트 실행</li>
+          <li>엑셀(.xlsx)로 추출 완료</li>
+        </ol>
+      </article>
+    </div>
+
+    <h2 class="block-title">QnA</h2>
+    <div class="qna-list">
+      <details class="qna-item">
+        <summary class="qna-item__q">
+          <span class="qna-item__tag">Q1</span>
+          Claude AI로 생성한 코드를 꼭 직접 수정해야 하나요? 처음부터 끝까지 Claude만 시키면 안 되나요?
+        </summary>
+        <p class="qna-item__a"><span class="qna-item__tag qna-item__tag--a">A1</span>Claude는 사용할 수 있는 리소스에 제한이 있습니다. 코드 한두 줄을 변경하기 위해 전체 리소스를 사용하기보다는, 직접 수정하는 것이 효율적입니다.</p>
+      </details>
+      <details class="qna-item">
+        <summary class="qna-item__q">
+          <span class="qna-item__tag">Q2</span>
+          Github에서도 업로드한 코드를 직접 수정할 수 있던데, 거기서 수정하면 안 되나요? 꼭 VS Code를 켜야 하나요?
+        </summary>
+        <p class="qna-item__a"><span class="qna-item__tag qna-item__tag--a">A2</span>VS Code에서는 수정한 코드를 미리보기로 즉시 확인할 수 있습니다. 오류를 줄이기 위해 VS Code 사용을 권장합니다.</p>
+      </details>
+            <details class="qna-item">
+        <summary class="qna-item__q">
+          <span class="qna-item__tag">Q3</span>
+          교육생이 본인 폰으로 웹사이트에 입력한 이름과 필기 시험 답안, 설문조사 결과를 우리가 어떻게 알 수 있나요?
+        </summary>
+        <p class="qna-item__a"><span class="qna-item__tag qna-item__tag--a">A3</span>웹사이트에서 [제출]을 누르면 입력한 값들이 Supabase라는 별도의 데이터 베이스에 저장이 됩니다.</p>
+      </details>      <details class="qna-item">
+        <summary class="qna-item__q">
+          <span class="qna-item__tag">Q4</span>
+          데이터 파일 가독성이 떨어지는데, 다르게 가공할 수는 없나요?
+        </summary>
+        <p class="qna-item__a"><span class="qna-item__tag qna-item__tag--a">A4</span>가독성 좋게 예시를 만들어서 AI에게 입력하면 예시와 같은 형태로 가공해주는 파이썬 파일을 새롭게 만들어줍니다.</p>
+      </details>      <details class="qna-item">
+        <summary class="qna-item__q">
+          <span class="qna-item__tag">Q5</span>
+          제작한 웹사이트를 보다 쉽게 공유하려면 어떻게 해야 하나요?
+        </summary>
+        <p class="qna-item__a"><span class="qna-item__tag qna-item__tag--a">A5</span>qr.naver.com 사이트에서 qr 코드로 만들어 배포하면 됩니다.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ================= 01 VS CODE ================= -->
+  <section class="panel" id="vscode">
+    <div class="section-head">
+      <span class="section-head__index">01</span>
+      <div>
+        <h1 class="section-head__title">VS Code 사용 가이드</h1>
+        <p class="section-head__desc">코드 파일을 직접 수정하고, 저장 전 미리보기로 확인합니다</p>
+      </div>
+    </div>
+
+    <h2 class="block-title">프로그램 설명</h2>
+    <div class="info-grid">
+      <article class="info-card">
+        <h3 class="info-card__name">VS Code</h3>
+        <p class="info-card__desc">html, css, js, py 등의 코딩 파일들을 직접 수정하는 프로그램</p>
+      </article>
+    </div>
+
+    <h2 class="block-title">웹사이트를 이루는 파일 구조</h2>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>파일명</th><th>역할</th><th>수정 대상</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>*.html</code></td>
+            <td>웹사이트의 뼈대 및 내용, 정지 요소</td>
+            <td>소식지 아티클 내용, 온보딩 시간표 / TEST / 설문 내용 변경 등</td>
+          </tr>
+          <tr>
+            <td><code>*.css</code></td>
+            <td>웹사이트의 색상, 폰트 등 디자인 요소</td>
+            <td>특별한 경우 외에는 수정 불필요</td>
+          </tr>
+          <tr>
+            <td><code>*.js</code></td>
+            <td>웹사이트 동작 로직, 입장 코드 / 퀴즈 팝업 등 움직이는 요소</td>
+            <td>소식지 교육 현황, 온보딩 입장 코드 변경 등</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="block-title">설치 및 기본 사용 가이드</h2>
+
+    <div class="step-flow">
+      <span class="step-flow__node">사전 준비</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node">ㄱ. 설치</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node">ㄴ. Live Preview 설치</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node">ㄷ. 폴더 열기</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node">ㄹ. 코드 수정</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node">ㅁ. 미리보기</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node">ㅂ. 저장</span>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">사전 준비</div>
+      <p class="step-card__body">
+        <code>*.html</code> 등의 파일을 준비합니다.<br>
+        기존 작업 파일을 사용하거나, AI를 통해 만든 파일을 다운로드합니다. (Appendix 참고)
+      </p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㄱ. 프로그램 다운로드 및 설치</div>
+      <p class="step-card__body">
+        <a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener" class="link">code.visualstudio.com/Download</a> 에서 파일을 다운로드하여 설치 후 실행합니다.
+      </p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㄴ. Live Preview 확장 설치</div>
+      <ol class="step-card__list">
+        <li>프로그램 좌측의 확장팩(Extensions) 탭으로 들어가기</li>
+        <li>"Live Preview" 검색</li>
+        <li>Microsoft 사에서 만든 Live Preview를 찾아 <strong>Install</strong> 클릭하여 설치</li>
+      </ol>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㄷ. 코드 파일 폴더 열기</div>
+      <ol class="step-card__list">
+        <li>폴더 내 파일이 전부 불러와집니다. <strong>File &gt; Open Folder</strong></li>
+        <li>html, css, js 코드 파일들이 저장된 폴더를 선택하여 열기</li>
+        <li>좌측 [파일 목록]에서 수정할 파일을 클릭하여 [코드 수정창] 확인</li>
+      </ol>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㄹ. 코드 수정하기 <span class="step-card__example">접속 코드 변경 예시</span></div>
+      <ol class="step-card__list">
+        <li><code>app.js</code> 파일에서</li>
+        <li><code>// 비밀번호 설정</code> 부분을 찾아</li>
+        <li><code>'0601'</code> → <code>'원하는 숫자'</code>로 변경</li>
+      </ol>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㅁ. 수정 사항 미리 보기</div>
+      <ol class="step-card__list">
+        <li><code>index.html</code> 파일로 들어가기</li>
+        <li>돋보기 모양의 Live Preview 탭 클릭</li>
+        <li>탭 하단에 미리보기 창 확인</li>
+      </ol>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㅂ. 저장</div>
+      <p class="step-card__body"><strong>File &gt; Save All</strong> 로 전체 수정사항을 저장합니다.</p>
+    </div>
+  </section>
+
+  <!-- ================= 02 GITHUB ================= -->
+  <section class="panel" id="github">
+    <div class="section-head">
+      <span class="section-head__index">02</span>
+      <div>
+        <h1 class="section-head__title">Github 사용 가이드</h1>
+        <p class="section-head__desc">완성된 코드를 업로드하여 누구나 접속 가능한 링크로 발행합니다</p>
+      </div>
+    </div>
+
+    <h2 class="block-title">프로그램 설명</h2>
+    <div class="info-grid">
+      <article class="info-card">
+        <h3 class="info-card__name">Github</h3>
+        <p class="info-card__desc">코딩 파일들을 업로드하여 배포하고, 공유 링크를 생성해주는 사이트</p>
+      </article>
+    </div>
+
+    <h2 class="block-title">전체 흐름</h2>
+    <div class="step-flow">
+      <span class="step-flow__node">ㄱ. 접속 및 로그인</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node">ㄴ. 프로젝트 생성 / 선택</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node step-flow__node--optional">(ㄷ. 초기 세팅)</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node">ㄹ. 파일 업로드</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node step-flow__node--optional">(ㅁ. 발행)</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node">ㅂ. 발행 확인</span>
+    </div>
+    <p class="note">※ ( ) 표시된 ㄷ, ㅁ 과정은 <strong>새로운 사이트를 생성할 때만</strong> 필요합니다.</p>
+
+    <div class="step-card">
+      <div class="step-card__label">ㄱ. 접속 및 로그인</div>
+      <ol class="step-card__list">
+        <li><a href="https://github.com/" target="_blank" rel="noopener" class="link">github.com</a> 에서 <strong>Sign in &gt; Continue with Google</strong></li>
+        <li>교육서비스팀 공용 구글 계정을 선택하여 로그인</li>
+      </ol>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㄴ. 프로젝트 생성 또는 선택</div>
+      <ol class="step-card__list">
+        <li>새 프로젝트 생성 시 : 화면 좌측 상단의 <strong>[New]</strong> 클릭</li>
+        <li>기존 사이트 수정 시 : 수정할 프로젝트 선택</li>
+      </ol>
+    </div>
+
+    <div class="step-card step-card--optional">
+      <div class="step-card__label">ㄷ. (새 사이트 생성 시) 초기 세팅</div>
+      <ol class="step-card__list">
+        <li>사이트 주소의 / 뒷부분에 해당하는 <strong>Repository name</strong>을 영문으로 작성</li>
+        <li><strong>Description</strong>에 대략적인 설명 작성 (한글 가능)</li>
+        <li><strong>Create repository</strong> 버튼을 클릭하여 생성 완료</li>
+      </ol>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㄹ. 파일 업로드</div>
+      <div class="sub-step">
+        <div class="sub-step__title">ㄹ-1. 새 사이트 생성 시</div>
+        <ol class="step-card__list">
+          <li><strong>[Code]</strong> 탭 들어가기</li>
+          <li><strong>[uploading an existing file]</strong> 선택</li>
+        </ol>
+      </div>
+      <div class="sub-step">
+        <div class="sub-step__title">ㄹ-2. 기존 프로젝트에 파일 업로드</div>
+        <ol class="step-card__list">
+          <li><strong>[Code]</strong> 탭 들어가기</li>
+          <li><strong>+</strong> 선택</li>
+          <li><strong>[Upload files]</strong> 선택</li>
+        </ol>
+      </div>
+      <div class="sub-step">
+        <div class="sub-step__title">ㄹ-3. 파일 업로드 완료 및 저장</div>
+        <ol class="step-card__list">
+          <li>업로드 창에 파일을 직접 드래그하거나, <strong>[choose your files]</strong>로 업로드</li>
+          <li><strong>[Commit changes]</strong>로 저장</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="step-card step-card--optional">
+      <div class="step-card__label">ㅁ. (새 사이트 생성 시) 발행하기</div>
+      <ol class="step-card__list">
+        <li>최상단 <strong>[Settings]</strong> 탭 들어가기</li>
+        <li>좌측의 <strong>[Pages]</strong> 탭 들어가기</li>
+        <li><strong>[Branch]</strong> 하단의 <strong>[None]</strong>을 <strong>[Main]</strong>으로 변경 후 <strong>[Save]</strong></li>
+      </ol>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㅂ. 발행 확인 및 사이트 주소 찾기</div>
+      <ol class="step-card__list">
+        <li>최상단 <strong>[Code]</strong> 탭 들어가기</li>
+        <li>우측 <strong>[Deployments]</strong> 하단 <strong>[github-pages]</strong> 클릭</li>
+        <li><strong>github-pages</strong> 하단 주소를 클릭하여 발행 확인</li>
+        <li>해당 주소를 공유하면 누구나 웹페이지에 접속할 수 있습니다.</li>
+      </ol>
+    </div>
+
+  </section>
+
+  <!-- ================= 03 SUPABASE ================= -->
+  <section class="panel" id="supabase">
+    <div class="section-head">
+      <span class="section-head__index">03</span>
+      <div>
+        <h1 class="section-head__title">Supabase 사용 가이드</h1>
+        <p class="section-head__desc">웹에 응답한 데이터를 자동으로 수집·저장합니다</p>
+      </div>
+    </div>
+
+    <h2 class="block-title">도구 설명</h2>
+    <div class="info-grid">
+      <article class="info-card">
+        <h3 class="info-card__name">Supabase</h3>
+        <p class="info-card__desc">웹에 교육생들이 입력한 값들을 수집하는 데이터베이스 사이트</p>
+      </article>
+    </div>
+
+    <h2 class="block-title">전체 흐름</h2>
+    <div class="step-flow">
+      <span class="step-flow__node">ㄱ. 접속 및 로그인</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node">ㄴ. 프로젝트 선택</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node">ㄷ. 테이블 선택</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node">ㄹ. 데이터 파일 다운로드</span>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㄱ. 접속 및 로그인</div>
+      <ol class="step-card__list">
+        <li><a href="https://supabase.com/" target="_blank" rel="noopener" class="link">supabase.com</a> 에서 <strong>Sign in &gt; Continue with Google</strong></li>
+        <li>교육서비스팀 공용 구글 계정을 선택하여 로그인</li>
+      </ol>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㄴ. 프로젝트 선택</div>
+      <p class="step-card__body">첫 페이지인 <strong>Projects</strong> 탭 하단에서 프로젝트 선택</p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㄷ. 테이블 선택</div>
+      <p class="step-card__body">좌측 메뉴에서 <strong>[Table Editor]</strong> 탭 선택</p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㄹ. 데이터 파일 다운로드</div>
+      <ol class="step-card__list">
+        <li>데이터를 내려받고자 하는 테이블 제목 우측의 점 세개 클릭</li>
+        <li><strong>[Export data] &gt; [Export table as CSV]</strong> 클릭하여 파일 다운로드</li>
+        <li>다운로드한 파일은 <strong>Python 파일(<code>*.py</code>)과 같은 폴더에 저장</strong></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= 04 PYTHON ================= -->
+  <section class="panel" id="python">
+    <div class="section-head">
+      <span class="section-head__index">04</span>
+      <div>
+        <h1 class="section-head__title">Python 사용 가이드</h1>
+        <p class="section-head__desc">Supabase에서 받은 데이터를 보기 좋은 엑셀로 변환합니다</p>
+      </div>
+    </div>
+
+    <h2 class="block-title">도구 설명</h2>
+    <div class="info-grid">
+      <article class="info-card">
+        <h3 class="info-card__name">Python (.py)</h3>
+        <p class="info-card__desc">컴퓨터에게 매크로처럼 특정 동작들을 자동으로 하게 만들어주는 입력값 파일</p>
+      </article>
+      <article class="info-card">
+        <h3 class="info-card__name">터미널 (cmd)</h3>
+        <p class="info-card__desc">클릭-실행 방식이 아닌, 명령어 입력 방식으로 내 컴퓨터에게 일을 시키는 창</p>
+      </article>
+    </div>
+
+    <h2 class="block-title">전체 흐름</h2>
+    <div class="step-flow">
+      <span class="step-flow__node">ㄱ. 터미널 열기</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node">ㄴ. 필수 프로그램 설치</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node step-flow__node--optional">(ㄷ. AI로 파이썬 파일 생성)</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node">ㄹ. 폴더로 이동</span>
+      <span class="step-flow__arrow">→</span>
+      <span class="step-flow__node">ㅁ. 실행</span>
+    </div>
+    <p class="note">※ ( ) 표시된 ㄷ 과정은 <strong>변환용 파이썬 파일이 아직 없을 때만</strong> 필요합니다.</p>
+
+    <div class="step-card">
+      <div class="step-card__label">ㄱ. 터미널(cmd) 열기</div>
+      <ol class="step-card__list">
+        <li>시작 표시줄의 돋보기 아이콘 클릭 &gt; <code>cmd</code> 검색</li>
+        <li><strong>[명령 프롬프트]</strong> 혹은 <strong>[cmd]</strong> 실행</li>
+      </ol>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㄴ. 최초 사용 시 필수 프로그램 설치 <span class="step-card__example">최초 1회만</span></div>
+      <ol class="step-card__list">
+        <li>터미널에 <code>python -m pip install pandas openpyxl</code> 입력 후 엔터</li>
+        <li>필수 프로그램들이 자동으로 설치됨 (설치된 모습은 아이콘으로 보이지 않음)</li>
+        <li><code>pandas</code> : 파이썬이 CSV 파일을 읽게 해주는 프로그램</li>
+        <li><code>openpyxl</code> : 파이썬이 엑셀 파일을 읽게 해주는 프로그램</li>
+      </ol>
+    </div>
+
+    <div class="step-card step-card--optional">
+      <div class="step-card__label">ㄷ. (변환용 파이썬 파일이 없을 때) AI로 파이썬 파일 생성</div>
+      <ol class="step-card__list">
+        <li>AI에 데이터 파일(<code>*.csv</code>)과 구현하고자 하는 디자인 파일(<code>*.xlsx</code>)을 첨부</li>
+        <li>"이 CSV를 엑셀 파일처럼 정리해주는 파이썬 코드를 생성해 줘" 라고 입력</li>
+        <li>생성된 파이썬 파일(<code>*.py</code>)을 데이터 파일들(<code>*.csv</code>)이 있는 같은 폴더에 저장</li>
+      </ol>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㄹ. 파이썬·데이터 파일이 있는 폴더로 이동</div>
+      <ol class="step-card__list">
+        <li>데이터 파일이 있는 폴더 주소를 복사</li>
+        <li>터미널에서 <code>cd</code> 입력 후 한 칸 띄어쓰고 <strong>Ctrl+V</strong>로 붙여넣기, 엔터</li>
+        <li><code>cd</code> : 해당 폴더로 이동하라는 명령어</li>
+      </ol>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㅁ. 실행</div>
+      <ol class="step-card__list">
+        <li><code>python 파이썬파일명.py</code> 입력 후 엔터</li>
+        <li>예시 : <code>python convert.py</code></li>
+        <li>터미널 창에서 완료 메세지가 확인되면, 해당 폴더에 저장된 결과 파일을 열어 확인</li>
+      </ol>
+    </div>
+  </section>
+
+
+  <!-- ================= 05 APPENDIX ================= -->
+  <section class="panel" id="appendix">
+    <div class="section-head">
+      <span class="section-head__index">05</span>
+      <div>
+        <h1 class="section-head__title">Appendix</h1>
+        <p class="section-head__desc">참고 화면 및 추가 가이드</p>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㄱ. 웹사이트 초기 생성 시 Claude AI 프롬프트 예시</div>
+
+      <div class="appendix-row">
+        <div class="appendix-row__media">
+          <img src="appendix-1-1.png" alt="Claude AI 프롬프트 입력 예시" class="appendix-img">
+        </div>
+        <div class="appendix-row__text">
+          <ul class="step-card__list">
+            <li>사이트 제목, 내용, 디자인 설정 등 입력</li>
+            <li>로고 파일 및 내용에 들어갈 파일 첨부</li>
+            <li>"확인할 것들 작업 전에 물어봐줘" 입력 필수</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="appendix-row">
+        <div class="appendix-row__media">
+          <img src="appendix-1-2.png" alt="사이트 구조 질문 화면" class="appendix-img">
+        </div>
+        <div class="appendix-row__text">
+          <ul class="step-card__list">
+            <li>질문 사항들 답변 완료 시 작업이 시작됨</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="appendix-row">
+        <div class="appendix-row__media">
+          <img src="appendix-1-3.png" alt="작업 완료 후 파일 다운로드 화면" class="appendix-img">
+        </div>
+        <div class="appendix-row__text">
+          <ul class="step-card__list">
+            <li>작업이 완료되면 <strong>[모두 다운로드]</strong>하여 작업 파일들 저장</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card__label">ㄴ. PC / 다양한 폰 환경에서 구동되는지 확인하는 방법</div>
+      <p class="step-card__body">웹페이지 접속 시 PC와 다양한 기종의 폰 환경에서 어떻게 구동되는지 확인하는 방법입니다. (브라우저에 따라 약간 다르지만, 비슷하게 실행됩니다)</p>
+
+      <div class="appendix-row">
+        <div class="appendix-row__media appendix-row__media--wide">
+          <img src="appendix-2-1.png" alt="개발자 도구 반응형 화면 확인" class="appendix-img">
+        </div>
+        <div class="appendix-row__text">
+          <ol class="step-card__list">
+            <li>해당 페이지 접속 후 키보드에서 <strong>F12</strong> 눌러 개발자 탭 열기</li>
+            <li>우측 개발자 탭에서 <strong>PC/폰 아이콘</strong> 클릭</li>
+            <li><strong>Dimensions</strong>에서 폰 기종 선택 또는 화면 사이즈 직접 설정</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>TERAROSA 교육서비스팀</span>
+  <span class="footer__dot">·</span>
+  <span>웹사이트 제작 및 운영 가이드</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
