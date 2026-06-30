@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>테라로사 교육서비스팀 | 세미 선생님이 쉽게 알려주는 웹사이트 제작 가이드</title>
+<title>테라로사 교육서비스팀 | 웹사이트 제작 및 운영 가이드</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -26,14 +26,8 @@
       <button class="tab" data-target="github">
         <span class="tab__index">02</span>Github
       </button>
-      <button class="tab" data-target="supabase">
-        <span class="tab__index">03</span>Supabase
-      </button>
-      <button class="tab" data-target="python">
-        <span class="tab__index">04</span>Python
-      </button>
       <button class="tab" data-target="appendix">
-        <span class="tab__index">05</span>Appendix
+        <span class="tab__index">03</span>Appendix
       </button>
     </nav>
   </div>
@@ -149,14 +143,9 @@
           <span class="qna-item__tag">Q3</span>
           교육생이 본인 폰으로 웹사이트에 입력한 이름과 필기 시험 답안, 설문조사 결과를 우리가 어떻게 알 수 있나요?
         </summary>
-        <p class="qna-item__a"><span class="qna-item__tag qna-item__tag--a">A3</span>웹사이트에서 [제출]을 누르면 입력한 값들이 Supabase라는 별도의 데이터 베이스에 저장이 됩니다.</p>
-      </details>      <details class="qna-item">
-        <summary class="qna-item__q">
-          <span class="qna-item__tag">Q4</span>
-          데이터 파일 가독성이 떨어지는데, 다르게 가공할 수는 없나요?
-        </summary>
-        <p class="qna-item__a"><span class="qna-item__tag qna-item__tag--a">A4</span>가독성 좋게 예시를 만들어서 AI에게 입력하면 예시와 같은 형태로 가공해주는 파이썬 파일을 새롭게 만들어줍니다.</p>
-      </details>      <details class="qna-item">
+        <p class="qna-item__a"><span class="qna-item__tag qna-item__tag--a">A3</span>웹사이트에서 [제출]을 누르면 입력한 값들이 교육서비스팀 구글 시트에 자동으로 저장이 됩니다.</p>
+      </details>    
+      <details class="qna-item">
         <summary class="qna-item__q">
           <span class="qna-item__tag">Q5</span>
           제작한 웹사이트를 보다 쉽게 공유하려면 어떻게 해야 하나요?
@@ -390,146 +379,6 @@
     </div>
 
   </section>
-
-  <!-- ================= 03 SUPABASE ================= -->
-  <section class="panel" id="supabase">
-    <div class="section-head">
-      <span class="section-head__index">03</span>
-      <div>
-        <h1 class="section-head__title">Supabase 사용 가이드</h1>
-        <p class="section-head__desc">웹에 응답한 데이터를 자동으로 수집·저장합니다</p>
-      </div>
-    </div>
-
-    <h2 class="block-title">도구 설명</h2>
-    <div class="info-grid">
-      <article class="info-card">
-        <h3 class="info-card__name">Supabase</h3>
-        <p class="info-card__desc">웹에 교육생들이 입력한 값들을 수집하는 데이터베이스 사이트</p>
-      </article>
-    </div>
-
-    <h2 class="block-title">전체 흐름</h2>
-    <div class="step-flow">
-      <span class="step-flow__node">ㄱ. 접속 및 로그인</span>
-      <span class="step-flow__arrow">→</span>
-      <span class="step-flow__node">ㄴ. 프로젝트 선택</span>
-      <span class="step-flow__arrow">→</span>
-      <span class="step-flow__node">ㄷ. 테이블 선택</span>
-      <span class="step-flow__arrow">→</span>
-      <span class="step-flow__node">ㄹ. 데이터 파일 다운로드</span>
-    </div>
-
-    <div class="step-card">
-      <div class="step-card__label">ㄱ. 접속 및 로그인</div>
-      <ol class="step-card__list">
-        <li><a href="https://supabase.com/" target="_blank" rel="noopener" class="link">supabase.com</a> 에서 <strong>Sign in &gt; Continue with Google</strong></li>
-        <li>교육서비스팀 공용 구글 계정을 선택하여 로그인</li>
-      </ol>
-    </div>
-
-    <div class="step-card">
-      <div class="step-card__label">ㄴ. 프로젝트 선택</div>
-      <p class="step-card__body">첫 페이지인 <strong>Projects</strong> 탭 하단에서 프로젝트 선택</p>
-    </div>
-
-    <div class="step-card">
-      <div class="step-card__label">ㄷ. 테이블 선택</div>
-      <p class="step-card__body">좌측 메뉴에서 <strong>[Table Editor]</strong> 탭 선택</p>
-    </div>
-
-    <div class="step-card">
-      <div class="step-card__label">ㄹ. 데이터 파일 다운로드</div>
-      <ol class="step-card__list">
-        <li>데이터를 내려받고자 하는 테이블 제목 우측의 점 세개 클릭</li>
-        <li><strong>[Export data] &gt; [Export table as CSV]</strong> 클릭하여 파일 다운로드</li>
-        <li>다운로드한 파일은 <strong>Python 파일(<code>*.py</code>)과 같은 폴더에 저장</strong></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ================= 04 PYTHON ================= -->
-  <section class="panel" id="python">
-    <div class="section-head">
-      <span class="section-head__index">04</span>
-      <div>
-        <h1 class="section-head__title">Python 사용 가이드</h1>
-        <p class="section-head__desc">Supabase에서 받은 데이터를 보기 좋은 엑셀로 변환합니다</p>
-      </div>
-    </div>
-
-    <h2 class="block-title">도구 설명</h2>
-    <div class="info-grid">
-      <article class="info-card">
-        <h3 class="info-card__name">Python (.py)</h3>
-        <p class="info-card__desc">컴퓨터에게 매크로처럼 특정 동작들을 자동으로 하게 만들어주는 입력값 파일</p>
-      </article>
-      <article class="info-card">
-        <h3 class="info-card__name">터미널 (cmd)</h3>
-        <p class="info-card__desc">클릭-실행 방식이 아닌, 명령어 입력 방식으로 내 컴퓨터에게 일을 시키는 창</p>
-      </article>
-    </div>
-
-    <h2 class="block-title">전체 흐름</h2>
-    <div class="step-flow">
-      <span class="step-flow__node">ㄱ. 터미널 열기</span>
-      <span class="step-flow__arrow">→</span>
-      <span class="step-flow__node">ㄴ. 필수 프로그램 설치</span>
-      <span class="step-flow__arrow">→</span>
-      <span class="step-flow__node step-flow__node--optional">(ㄷ. AI로 파이썬 파일 생성)</span>
-      <span class="step-flow__arrow">→</span>
-      <span class="step-flow__node">ㄹ. 폴더로 이동</span>
-      <span class="step-flow__arrow">→</span>
-      <span class="step-flow__node">ㅁ. 실행</span>
-    </div>
-    <p class="note">※ ( ) 표시된 ㄷ 과정은 <strong>변환용 파이썬 파일이 아직 없을 때만</strong> 필요합니다.</p>
-
-    <div class="step-card">
-      <div class="step-card__label">ㄱ. 터미널(cmd) 열기</div>
-      <ol class="step-card__list">
-        <li>시작 표시줄의 돋보기 아이콘 클릭 &gt; <code>cmd</code> 검색</li>
-        <li><strong>[명령 프롬프트]</strong> 혹은 <strong>[cmd]</strong> 실행</li>
-      </ol>
-    </div>
-
-    <div class="step-card">
-      <div class="step-card__label">ㄴ. 최초 사용 시 필수 프로그램 설치 <span class="step-card__example">최초 1회만</span></div>
-      <ol class="step-card__list">
-        <li>터미널에 <code>python -m pip install pandas openpyxl</code> 입력 후 엔터</li>
-        <li>필수 프로그램들이 자동으로 설치됨 (설치된 모습은 아이콘으로 보이지 않음)</li>
-        <li><code>pandas</code> : 파이썬이 CSV 파일을 읽게 해주는 프로그램</li>
-        <li><code>openpyxl</code> : 파이썬이 엑셀 파일을 읽게 해주는 프로그램</li>
-      </ol>
-    </div>
-
-    <div class="step-card step-card--optional">
-      <div class="step-card__label">ㄷ. (변환용 파이썬 파일이 없을 때) AI로 파이썬 파일 생성</div>
-      <ol class="step-card__list">
-        <li>AI에 데이터 파일(<code>*.csv</code>)과 구현하고자 하는 디자인 파일(<code>*.xlsx</code>)을 첨부</li>
-        <li>"이 CSV를 엑셀 파일처럼 정리해주는 파이썬 코드를 생성해 줘" 라고 입력</li>
-        <li>생성된 파이썬 파일(<code>*.py</code>)을 데이터 파일들(<code>*.csv</code>)이 있는 같은 폴더에 저장</li>
-      </ol>
-    </div>
-
-    <div class="step-card">
-      <div class="step-card__label">ㄹ. 파이썬·데이터 파일이 있는 폴더로 이동</div>
-      <ol class="step-card__list">
-        <li>데이터 파일이 있는 폴더 주소를 복사</li>
-        <li>터미널에서 <code>cd</code> 입력 후 한 칸 띄어쓰고 <strong>Ctrl+V</strong>로 붙여넣기, 엔터</li>
-        <li><code>cd</code> : 해당 폴더로 이동하라는 명령어</li>
-      </ol>
-    </div>
-
-    <div class="step-card">
-      <div class="step-card__label">ㅁ. 실행</div>
-      <ol class="step-card__list">
-        <li><code>python 파이썬파일명.py</code> 입력 후 엔터</li>
-        <li>예시 : <code>python convert.py</code></li>
-        <li>터미널 창에서 완료 메세지가 확인되면, 해당 폴더에 저장된 결과 파일을 열어 확인</li>
-      </ol>
-    </div>
-  </section>
-
 
   <!-- ================= 05 APPENDIX ================= -->
   <section class="panel" id="appendix">
